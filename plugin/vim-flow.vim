@@ -22,3 +22,11 @@ function! VimFlowFeatureFunction()
     let command = ':!git checkout -b ' . feature_name . ' dev'
     exe command
 endfunction
+
+command! VimFlowRelease :call VimFlowReleaseFunction()<CR>
+function! VimFlowReleaseFunction()
+    let release = input('Release: ')
+    let release_name = 'release/' . release
+    let command = ':!git checkout -b ' . release_name . ' dev'
+    exe command
+endfunction

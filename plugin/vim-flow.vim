@@ -14,12 +14,24 @@
 " ------------------------------------------------------------------------------
 
 command! VimFlowInfo :echo "A Vim plugin for the git flow"
+command! VimFlowFeatureList :!git branch | grep 'feature'
+command! VimFlowRemoveMergedFeature :!git branch -D  `git branch --merged | grep feature | grep -v \* | xargs`
+command! VimFlowRemoveMergedReleases :!git branch -D  `git branch --merged | grep release | grep -v \* | xargs`
 
 command! VimFlowFeature :call VimFlowFeatureFunction()<CR>
 function! VimFlowFeatureFunction()
     let feature = input('Feature: ')
     let feature_name = 'feature/' . feature
     let command = ':!git checkout -b ' . feature_name . ' dev'
+    exe command
+endfunction
+
+command! VimFlowAddFeature :call VimFlowAddFeatureFunction()<CR>
+function! VimFlowAddFeatureFunction()
+    let feature = input('Enter the name of the feature to add: ')
+    let feature_name = 'feature/' . feature
+    let command = ':!git merge ' . feature
+    exe ':!git checkout dev'
     exe command
 endfunction
 

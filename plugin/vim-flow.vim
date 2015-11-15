@@ -22,3 +22,11 @@ function! VimFlowFeatureFunction()
     let command = ':!git checkout -b ' . feature_name . ' dev'
     exe command
 endfunction
+
+command! VimFlowHotfix :call VimFlowHotfixFunction()<CR>
+function! VimFlowHotfixFunction()
+    let hotfix = input('Hotfix: ')
+    let hotfix_name = 'hotfix/' . hotfix
+    let command = ':!git checkout -b ' . hotfix_name . ' master'
+    exe command
+endfunction

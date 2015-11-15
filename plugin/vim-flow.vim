@@ -23,6 +23,15 @@ function! VimFlowFeatureFunction()
     exe command
 endfunction
 
+command! VimFlowAddFeature :call VimFlowAddFeatureFunction()<CR>
+function! VimFlowAddFeatureFunction()
+    let feature = input('Enter the name of the feature to add: ')
+    let feature_name = 'feature/' . feature
+    let command = ':!git merge ' . feature
+    exe ':!git checkout dev'
+    exe command
+endfunction
+
 command! VimFlowHotfix :call VimFlowHotfixFunction()<CR>
 function! VimFlowHotfixFunction()
     let hotfix = input('Hotfix: ')

@@ -14,6 +14,7 @@
 " ------------------------------------------------------------------------------
 
 command! VimFlowInfo :echo "A Vim plugin for the git flow"
+command! VimFlowFeatureList :!git branch | grep 'feature'
 
 command! VimFlowFeature :call VimFlowFeatureFunction()<CR>
 function! VimFlowFeatureFunction()

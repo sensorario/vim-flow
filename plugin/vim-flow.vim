@@ -13,10 +13,4 @@
 " }}}
 " ------------------------------------------------------------------------------
 
-command! VimFlowInfo :call g:VimFlowInfoFunction()<CR>
-
-function! VimFlowInfoFunction()
-    exec '!clear'
-    echo 'A Vim plugin for the git flow'
-endfunction
-
+command! VimFlowInfo :echo "A Vim plugin for the git flow"

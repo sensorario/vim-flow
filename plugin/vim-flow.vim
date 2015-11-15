@@ -14,6 +14,7 @@
 " ------------------------------------------------------------------------------
 
 command! VimFlowInfo :echo "A Vim plugin for the git flow"
+command! VimFlowRemoveMergedFeature :git branch -D  `git branch --merged | grep feature | grep -v \* | xargs`
 
 command! VimFlowFeature :call VimFlowFeatureFunction()<CR>
 function! VimFlowFeatureFunction()

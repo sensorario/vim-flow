@@ -13,10 +13,10 @@
 " }}}
 " ------------------------------------------------------------------------------
 
-command! VimFlowInit :call g:VimFlowInitFunction()<CR>
+command! VimFlowInfo :call g:VimFlowInfo()<CR>
 
-function! VimFlowInitFunction()
+function! VimFlowInfo()
     exec '!clear'
-    echo 'This is the git flow by sensorario'
+    echo 'A Vim plugin for the git flow'
 endfunction
 

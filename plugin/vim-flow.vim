@@ -13,10 +13,4 @@
 " }}}
 " ------------------------------------------------------------------------------
 
-command! VimFlowInit :call g:VimFlowInitFunction()<CR>
-
-function! VimFlowInitFunction()
-    exec '!clear'
-    echo 'This is the git flow by sensorario'
-endfunction
-
+command! VimFlowInfo :echo "A Vim plugin for the git flow"
